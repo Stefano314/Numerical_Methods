@@ -10,17 +10,19 @@ from matplotlib import cm #This is for the palet color
     
 #Constants
 k = 10
-NOrbits = 5
+NOrbits = 1
 time = np.linspace(0, 50, 1001)
-q0 = 2
+q0 = 1
 v0 = 1 #This is changing in the loop.
 state = [q0,v0]
+    
 def ODE(z,t):
     q,v = z
     #zdot = [v, -k*q] #Harmonic Oscillator
-    zdot = [v, 2*q - q**3] #Double well potential
+    #zdot = [v, 2*q - q**3] #Double well potential
     #zdot = [v, -2*q - 0.1*v] #Damped Harmonic Oscillator   
     #zdot = [v, -q*math.cos(q)] #Casual
+    zdot = [v, -9.8*math.sin(q)]
     #zdot = [0.6*q - 1.2*q*v, q*v - v]#Lotka-Volterra (q = prey, v = predators)
     return zdot
 
@@ -28,7 +30,7 @@ colors = cm.jet(np.linspace(0,1,NOrbits))
 check = int(input('-Phase space plotting (1) or Motion Plotting (2): '))
 if check == 1:
     for x0 in range(0,NOrbits):
-        state[1] = x0
+        state[1] = x0 + 5
         sol = spy.odeint(ODE, state, time)
         #======= Label Generation ========
         if x0 == 0: Label = 'E_min'
