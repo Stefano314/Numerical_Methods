@@ -16,7 +16,7 @@ EDIT: Many python programs have been added to this repository, although they are
 ![Double_Well](https://user-images.githubusercontent.com/79590448/132143334-d7a45ae4-b306-45f7-a676-3f83e6e5a7e1.png)
 
 #===================== Harmonic Oscillator Solutions =====================
-![HOMotion](https://user-images.githubusercontent.com/79590448/132143347-2f9390fa-2a7f-4d35-a8d7-32cb62a40485.png)
+![MotionHORK4](https://user-images.githubusercontent.com/79590448/132143428-bbeba715-bcba-420d-9b93-f9a248bcbf97.png)
 
 #===================== Lorenz Attractor =====================
 ![LorenzAttractor](https://user-images.githubusercontent.com/79590448/132143370-a59b75fe-d065-49bc-8af3-4229aaa467c7.png)
