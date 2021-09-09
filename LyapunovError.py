@@ -32,8 +32,8 @@ z = [i for i in range(0, NGrid**2)]
 j = 0
 for i in range(0,NGrid):
     print(i,'/',NGrid)
+    state0[0] = - 2. + 4. * i / NGrid
     for l in range(0,NGrid):
-        state0[0] = - 2. + 4. * i / NGrid
         state0[1] = - 2. + 4. * l / NGrid
         sol = spy.odeint(ODE, state0, time)
         sol_eps = spy.odeint(ODE, state0 + perturb, time)
