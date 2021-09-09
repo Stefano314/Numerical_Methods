@@ -21,9 +21,6 @@ def ODE(z,t):
     zdot = [v,  α*q - δ*v - β*q**3]
     return zdot
 
-def err(S, S_eps, t, eps):
-    return np.sqrt((S_eps[t,0] - S[t,0])**2 + (S_eps[t,1] - S[t,1])**2 ) / eps
-
 # Perturbative vector generation, outside the loop for performances improvement.
 perturb = np.random.uniform(-100, 100, [2])
 perturb = Ɛ * perturb / np.linalg.norm(perturb)
