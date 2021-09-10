@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.integrate as spy
 
-#=========================== LORENTZ ATTRACTOR ===========================
+#=========================== LORENZ ATTRACTOR ===========================
 # Constants
 t_max = 50
 NPoints = t_max * 100 + 1
@@ -14,7 +14,7 @@ w0 = 1.5
 state0 = [u0, v0, w0]
 state1 = [u0 + ε, v0 + ε, w0 + ε]
 
-def lorentz(z, t):
+def lorenz(z, t):
     u, v, w = z
     σ = 10
     ρ = 28
@@ -23,8 +23,8 @@ def lorentz(z, t):
     return zdot
 
 #Numerical Integration
-sol0 = spy.odeint(lorentz, state0, time)
-sol1 = spy.odeint(lorentz, state1, time)
+sol0 = spy.odeint(lorenz, state0, time)
+sol1 = spy.odeint(lorenz, state1, time)
 
 # Distance plot (Logarithmic Scale)
 distance = []
@@ -42,7 +42,7 @@ ax = fig.gca(projection = '3d')
 #Initial Conditions Highlight
 ax.plot(sol0[0, 0], sol0[0, 1], sol0[0, 2], 'o', color = 'aqua', markersize = 5.)
 ax.plot(sol1[0, 0], sol1[0, 1], sol1[0, 2], 'o', color = 'coral', markersize = 5.)
-ax.set_title('Lorentz Attractor')
+ax.set_title('Lorenz Attractor')
 
 # #Solution plot with delay
 # for i in range(1, NPoints, 3):
@@ -61,8 +61,8 @@ new_state0 = sol0[NPoints-20] #Careful here, we can go out of indexes.
 new_state1 = np.array([new_state0[0]+ε, new_state0[1]+ε, new_state0[2]+ε])
 
 #Numerical Integration
-sol0 = spy.odeint(lorentz, new_state0, time)
-sol1 = spy.odeint(lorentz, new_state1, time)
+sol0 = spy.odeint(lorenz, new_state0, time)
+sol1 = spy.odeint(lorenz, new_state1, time)
 
 # Distance plot (Logarithmic Scale)
 distance = []
@@ -80,7 +80,7 @@ ax = fig.gca(projection = '3d')
 #Initial Conditions Highlight
 ax.plot(sol0[0, 0], sol0[0, 1], sol0[0, 2], 'o', color = 'aqua', markersize = 5.)
 ax.plot(sol1[0, 0], sol1[0, 1], sol1[0, 2], 'o', color = 'coral', markersize = 5.)
-ax.set_title('Lorentz Attractor')
+ax.set_title('Lorenz Attractor')
 
 #Solution plot with delay
 for i in range(1, NPoints, 3):
