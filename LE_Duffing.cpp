@@ -33,13 +33,9 @@ int main(){
 	double J[4]; //for p
 	double I_eps[4]; //for q_eps
 	double J_eps[4]; //for p_eps
-	double *error = new double[tot_points];
+	double error;
 
 	//=================== Grid Simulation ===================
-	double *x = new double[tot_points];
-	double *y = new double[tot_points];
-	double *z = new double[tot_points];
-	int j = 0;
 	for(int m=0; m<NGrid; m++){
 		cout<< endl << m+1 << " / " <<NGrid<<endl;
 		state0[0] = - 2. + 4. * m / NGrid;
@@ -88,12 +84,11 @@ int main(){
 
 			}//=================== END INTEGRATION CYCLE ===================
 			
-			error[j] = sqrt(pow(q_eps[step_err]-q[step_err],2) + pow(p_eps[step_err]-p[step_err],2)) / eps;
-			file << setprecision(12) << q[0] << " " << setprecision(12) << p[0] << " " << error[j] <<endl;
+			error = sqrt(pow(q_eps[step_err]-q[step_err],2) + pow(p_eps[step_err]-p[step_err],2)) / eps;
+			file << setprecision(12) << q[0] << " " << setprecision(12) << p[0] << " " << error <<endl;
 			
 		}//=================== END X-GRID CYCLE ===================
 
 	}//=================== END Y-GRID CYCLE ===================
 	
 }//=================== END MAIN ===================
-
